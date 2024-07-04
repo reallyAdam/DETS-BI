@@ -1,7 +1,6 @@
-import { Footer } from '@/components';
-import { login } from '@/services/ant-design-pro/api';
-import {listChartByPageUsingPost} from '@/services/DETS/chartController'
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import {Footer} from '@/components';
+import {login} from '@/services/ant-design-pro/api';
+import {getFakeCaptcha} from '@/services/ant-design-pro/login';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -10,18 +9,14 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormCaptcha,
-  ProFormCheckbox,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Helmet, history, useModel } from '@umijs/max';
-import { Alert, message, Tabs } from 'antd';
-import { createStyles } from 'antd-style';
-import React, {useEffect, useState} from 'react';
-import { flushSync } from 'react-dom';
+import {LoginForm, ProFormCaptcha, ProFormCheckbox, ProFormText,} from '@ant-design/pro-components';
+import {Helmet, history, useModel} from '@umijs/max';
+import {Alert, message, Tabs} from 'antd';
+import {createStyles} from 'antd-style';
+import React, {useState} from 'react';
+import {flushSync} from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
+
 const useStyles = createStyles(({ token }) => {
   return {
     action: {
@@ -147,8 +142,8 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
-          subTitle={'Ant Design 是西湖区最具影响力的 Web 设计规范'}
+          title="DETS-智能BI"
+          subTitle={'DETS-智能BI 是西湖区最具影响力的 Web 设计规范'}
           initialValues={{
             autoLogin: true,
           }}

@@ -1,5 +1,6 @@
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import {QuestionCircleOutlined} from '@ant-design/icons';
 import '@umijs/max';
+
 export type SiderTheme = 'light' | 'dark';
 export const SelectLang = () => {
   return (

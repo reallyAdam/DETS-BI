@@ -1,9 +1,9 @@
 // https://umijs.org/config/
-import { defineConfig } from '@umijs/max';
-import { join } from 'path';
+import {defineConfig} from '@umijs/max';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
+
 const { REACT_APP_ENV = 'dev' } = process.env;
 export default defineConfig({
   /**
@@ -73,7 +73,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: 'Ant Design Pro',
+  title: 'DETS-智能BI',
   layout: {
     locale: true,
     ...defaultSettings,

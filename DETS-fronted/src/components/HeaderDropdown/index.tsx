@@ -1,7 +1,7 @@
-import { Dropdown } from 'antd';
-import type { DropDownProps } from 'antd/es/dropdown';
+import {Dropdown} from 'antd';
+import type {DropDownProps} from 'antd/es/dropdown';
 import React from 'react';
-import { createStyles } from 'antd-style';
+import {createStyles} from 'antd-style';
 import classNames from 'classnames';
 
 const useStyles = createStyles(({ token }) => {

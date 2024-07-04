@@ -7,8 +7,9 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import '@umijs/max';
-import { Modal } from 'antd';
+import {Modal} from 'antd';
 import React from 'react';
+
 export type FormValueType = {
   target?: string;
   template?: string;

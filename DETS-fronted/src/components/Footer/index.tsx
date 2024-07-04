@@ -1,5 +1,5 @@
-import { GithubOutlined } from '@ant-design/icons';
-import { DefaultFooter } from '@ant-design/pro-components';
+import {GithubOutlined} from '@ant-design/icons';
+import {DefaultFooter} from '@ant-design/pro-components';
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
       }}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
+          key: 'DETS-智能BI',
+          title: 'DETS-智能BI',
           href: 'https://pro.ant.design',
           blankTarget: true,
         },
@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
           blankTarget: true,
         },
         {
-          key: 'Ant Design',
-          title: 'Ant Design',
+          key: 'DETS-智能BI',
+          title: 'DETS-智能BI',
           href: 'https://ant.design',
           blankTarget: true,
         },
