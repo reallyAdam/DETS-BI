@@ -6,23 +6,28 @@ import com.zrd.springbootinit.common.BaseResponse;
 import com.zrd.springbootinit.common.DeleteRequest;
 import com.zrd.springbootinit.common.ErrorCode;
 import com.zrd.springbootinit.common.ResultUtils;
+import com.zrd.springbootinit.constant.FileConstant;
 import com.zrd.springbootinit.constant.UserConstant;
 import com.zrd.springbootinit.exception.BusinessException;
 import com.zrd.springbootinit.exception.ThrowUtils;
-import com.zrd.springbootinit.model.dto.chart.ChartAddRequest;
-import com.zrd.springbootinit.model.dto.chart.ChartEditRequest;
-import com.zrd.springbootinit.model.dto.chart.ChartQueryRequest;
-import com.zrd.springbootinit.model.dto.chart.ChartUpdateRequest;
+import com.zrd.springbootinit.model.dto.chart.*;
+import com.zrd.springbootinit.model.dto.file.UploadFileRequest;
 import com.zrd.springbootinit.model.entity.Chart;
 import com.zrd.springbootinit.model.entity.User;
+import com.zrd.springbootinit.model.enums.FileUploadBizEnum;
 import com.zrd.springbootinit.service.ChartService;
 import com.zrd.springbootinit.service.UserService;
+import com.zrd.springbootinit.utils.ExcelUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 
 /**
  * 帖子接口
@@ -218,4 +223,61 @@ public class ChartController {
         return ResultUtils.success(result);
     }
 
+    /**
+     * 智能图表分析
+     *
+     * @param multipartFile
+     * @param genChartByAIRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/gen")
+    public BaseResponse<String> genChartByAI(@RequestPart("file") MultipartFile multipartFile,
+                                             GenChartByAIRequest genChartByAIRequest, HttpServletRequest request) {
+        String goal = genChartByAIRequest.getGoal();
+        String chartType = genChartByAIRequest.getChartType();
+        String name = genChartByAIRequest.getName();
+        ThrowUtils.throwIf(StringUtils.isBlank(goal),ErrorCode.PARAMS_ERROR,"分析目标不能为空");
+        ThrowUtils.throwIf(StringUtils.isNotBlank(goal) && goal.length() > 100,ErrorCode.PARAMS_ERROR,"分析目标过长");
+        ThrowUtils.throwIf(StringUtils.isNotBlank(name) && name.length() > 100,ErrorCode.PARAMS_ERROR,"图表名字过长");
+        ThrowUtils.throwIf(StringUtils.isBlank(chartType),ErrorCode.PARAMS_ERROR,"图表类型不能为空");
+        String excelToCsv = ExcelUtils.excelToCsv(multipartFile);
+
+        return ResultUtils.success(excelToCsv);
+/*
+
+
+
+        String biz = uploadFileRequest.getBiz();
+        FileUploadBizEnum fileUploadBizEnum = FileUploadBizEnum.getEnumByValue(biz);
+        if (fileUploadBizEnum == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        validFile(multipartFile, fileUploadBizEnum);
+        User loginUser = userService.getLoginUser(request);
+        // 文件目录：根据业务、用户来划分
+        String uuid = RandomStringUtils.randomAlphanumeric(8);
+        String filename = uuid + "-" + multipartFile.getOriginalFilename();
+        String filepath = String.format("/%s/%s/%s", fileUploadBizEnum.getValue(), loginUser.getId(), filename);
+        File file = null;
+        try {
+            // 上传文件
+            file = File.createTempFile(filepath, null);
+            multipartFile.transferTo(file);
+            cosManager.putObject(filepath, file);
+            // 返回可访问地址
+            return ResultUtils.success(FileConstant.COS_HOST + filepath);
+        } catch (Exception e) {
+            log.error("file upload error, filepath = " + filepath, e);
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "上传失败");
+        } finally {
+            if (file != null) {
+                // 删除临时文件
+                boolean delete = file.delete();
+                if (!delete) {
+                    log.error("file delete error, filepath = {}", filepath);
+                }
+            }
+        }*/
+    }
 }
