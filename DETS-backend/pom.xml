@@ -11,7 +11,7 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.yupi</groupId>
+    <groupId>com.zrd</groupId>
     <artifactId>DETS-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>DETS-backend</name>
@@ -30,6 +30,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yucongming</groupId>
+            <artifactId>yucongming-java-sdk</artifactId>
+            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

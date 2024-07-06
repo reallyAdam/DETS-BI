@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import {request} from '@umijs/max';
+import { request } from '@umijs/max';
 
 /** doPostFavour POST /api/post_favour/ */
 export async function doPostFavourUsingPost(
