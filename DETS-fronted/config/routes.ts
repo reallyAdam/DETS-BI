@@ -5,8 +5,8 @@ export default [
       {path: '/user/register', component: './User/Register'}
     ]
   },
-  {path: '/', redirect: '/add_chart'},
-  {name: '添加图表',path: '/add_chart', icon: 'smile', component: './AddChart'},
+  {name: '添加图表',path: '/add_chart', icon: 'ZoomIn', component: './AddChart'},
+  {name: '我的图表',path: '/my_chart', icon: 'BarChart', component: './MyChart'},
   {path: '/welcome', icon: 'smile', component: './Welcome'},
   {
     path: '/admin',
