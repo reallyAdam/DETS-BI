@@ -101,8 +101,8 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.zrd.springbootinit.controller
-#鱼聪明AI
-yuapi:
-  client:
-    access-key: hghrxnrfdr3rws4hiqfsbx4ffozpe6yd
-    secret-key: 775kpayvffcot45ttl5iwp2rqro3m0ig
+##鱼聪明AI
+#yuapi:
+#  client:
+#    access-key: hghrxnrfdr3rws4hiqfsbx4ffozpe6yd
+#    secret-key: 775kpayvffcot45ttl5iwp2rqro3m0ig

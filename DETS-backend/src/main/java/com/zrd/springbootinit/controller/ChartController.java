@@ -263,8 +263,7 @@ public class ChartController {
         userInput.append(excelToCsv).append("\n");
 
         //调用AI
-        long aIModelId = 1659171950288818178L;
-        String doChat = aiManager.doChat(aIModelId, userInput.toString());
+        String doChat = aiManager.doChat(userInput.toString());
         //对返回数据进行处理
         String[] split = doChat.split("【【【【【");
         if(split.length < 3)
