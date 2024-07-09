@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="修改调用的大模型为星火大模型" />
+    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="开发基础功能-查询图表">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/config/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/chartController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/chartController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/fileController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/fileController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postFavourController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postFavourController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postThumbController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postThumbController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/userController.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +71,7 @@
       <workItem from="1720186618527" duration="124000" />
       <workItem from="1720259950733" duration="1019000" />
       <workItem from="1720430244037" duration="136000" />
+      <workItem from="1720440404714" duration="105000" />
     </task>
     <task id="LOCAL-00001" summary="完成初始化项目(前端/后端)">
       <created>1720094746247</created>
@@ -90,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720430308853</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="开发基础功能-查询图表">
+      <created>1720440507390</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720440507390</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +130,7 @@
     <MESSAGE value="前端(登录/注册实现) 后端实现Excel转csv功能" />
     <MESSAGE value="实现调用AI生成图表功能开发以及前端对应页面开发" />
     <MESSAGE value="修改调用的大模型为星火大模型" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改调用的大模型为星火大模型" />
+    <MESSAGE value="开发基础功能-查询图表" />
+    <option name="LAST_COMMIT_MESSAGE" value="开发基础功能-查询图表" />
   </component>
 </project>
