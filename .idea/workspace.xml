@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="开发基础功能-查询图表">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/config/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/chartController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/chartController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/fileController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/fileController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postFavourController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postFavourController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postThumbController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/postThumbController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DETS-fronted/src/services/DETS/userController.ts" afterDir="false" />
-    </list>
+    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="重新设置AI工具类以及前端查看我的图表页面优化" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,20 +34,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -72,6 +63,7 @@
       <workItem from="1720259950733" duration="1019000" />
       <workItem from="1720430244037" duration="136000" />
       <workItem from="1720440404714" duration="105000" />
+      <workItem from="1720532807218" duration="128000" />
     </task>
     <task id="LOCAL-00001" summary="完成初始化项目(前端/后端)">
       <created>1720094746247</created>
@@ -108,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720440507390</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="重新设置AI工具类以及前端查看我的图表页面优化">
+      <created>1720532922804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720532922804</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +130,7 @@
     <MESSAGE value="实现调用AI生成图表功能开发以及前端对应页面开发" />
     <MESSAGE value="修改调用的大模型为星火大模型" />
     <MESSAGE value="开发基础功能-查询图表" />
-    <option name="LAST_COMMIT_MESSAGE" value="开发基础功能-查询图表" />
+    <MESSAGE value="重新设置AI工具类以及前端查看我的图表页面优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="重新设置AI工具类以及前端查看我的图表页面优化" />
   </component>
 </project>
