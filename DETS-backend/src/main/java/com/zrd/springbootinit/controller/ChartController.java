@@ -1,5 +1,6 @@
 package com.zrd.springbootinit.controller;
 
+import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zrd.springbootinit.annotation.AuthCheck;
 import com.zrd.springbootinit.common.BaseResponse;
@@ -30,6 +31,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 帖子接口
@@ -242,9 +245,22 @@ public class ChartController {
         String goal = genChartByAIRequest.getGoal();
         String chartType = genChartByAIRequest.getChartType();
         String name = genChartByAIRequest.getName();
+        //对参数进行简单的校验
         ThrowUtils.throwIf(StringUtils.isBlank(goal),ErrorCode.PARAMS_ERROR,"分析目标不能为空");
         ThrowUtils.throwIf(StringUtils.isNotBlank(goal) && goal.length() > 100,ErrorCode.PARAMS_ERROR,"分析目标过长");
         ThrowUtils.throwIf(StringUtils.isNotBlank(name) && name.length() > 100,ErrorCode.PARAMS_ERROR,"图表名字过长");
+
+
+        //对文件进行校验
+        String filename = multipartFile.getOriginalFilename();
+        long fileSize = multipartFile.getSize();
+        final long ONE_MB = 1024 * 1024;
+        ThrowUtils.throwIf(fileSize > ONE_MB,ErrorCode.PARAMS_ERROR,"上传文件过大,不能超过1MB");
+
+        //对文件类型进行校验
+        final List<String> validFileSuffixList = Arrays.asList("xlsx");
+        ThrowUtils.throwIf(!validFileSuffixList.contains(FileUtil.getSuffix(filename)),ErrorCode.PARAMS_ERROR,"暂不支持该文件类型");
+
         //必须是登录的用户才能使用
         User loginUser = userService.getLoginUser(request);
 
