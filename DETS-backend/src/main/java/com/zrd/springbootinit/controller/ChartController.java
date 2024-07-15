@@ -7,22 +7,19 @@ import com.zrd.springbootinit.common.BaseResponse;
 import com.zrd.springbootinit.common.DeleteRequest;
 import com.zrd.springbootinit.common.ErrorCode;
 import com.zrd.springbootinit.common.ResultUtils;
-import com.zrd.springbootinit.constant.FileConstant;
 import com.zrd.springbootinit.constant.UserConstant;
 import com.zrd.springbootinit.exception.BusinessException;
 import com.zrd.springbootinit.exception.ThrowUtils;
 import com.zrd.springbootinit.manager.AIManager;
+import com.zrd.springbootinit.manager.RedisLimitManager;
 import com.zrd.springbootinit.model.dto.chart.*;
-import com.zrd.springbootinit.model.dto.file.UploadFileRequest;
 import com.zrd.springbootinit.model.entity.Chart;
 import com.zrd.springbootinit.model.entity.User;
-import com.zrd.springbootinit.model.enums.FileUploadBizEnum;
 import com.zrd.springbootinit.model.vo.BiResponseVO;
 import com.zrd.springbootinit.service.ChartService;
 import com.zrd.springbootinit.service.UserService;
 import com.zrd.springbootinit.utils.ExcelUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -30,15 +27,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * 帖子接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author zrd
+  
  */
 @RestController
 @RequestMapping("/chart")
@@ -47,6 +43,9 @@ public class ChartController {
 
     @Resource
     private ChartService chartService;
+
+    @Resource
+    private RedisLimitManager redisLimitManager;
 
     @Resource
     private UserService userService;
@@ -250,7 +249,6 @@ public class ChartController {
         ThrowUtils.throwIf(StringUtils.isNotBlank(goal) && goal.length() > 100,ErrorCode.PARAMS_ERROR,"分析目标过长");
         ThrowUtils.throwIf(StringUtils.isNotBlank(name) && name.length() > 100,ErrorCode.PARAMS_ERROR,"图表名字过长");
 
-
         //对文件进行校验
         String filename = multipartFile.getOriginalFilename();
         long fileSize = multipartFile.getSize();
@@ -263,6 +261,9 @@ public class ChartController {
 
         //必须是登录的用户才能使用
         User loginUser = userService.getLoginUser(request);
+
+        //限流检查
+        redisLimitManager.doLimit("genChartByAI_" + loginUser.getId());
 
         if (StringUtils.isNotBlank(chartType)) {
             // 就将分析目标拼接上“请使用”+图表类型

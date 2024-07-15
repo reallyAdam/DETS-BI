@@ -3,8 +3,6 @@ package com.zrd.springbootinit.common;
 /**
  * 自定义错误码
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 public enum ErrorCode {
 
@@ -12,6 +10,7 @@ public enum ErrorCode {
     PARAMS_ERROR(40000, "请求参数错误"),
     NOT_LOGIN_ERROR(40100, "未登录"),
     NO_AUTH_ERROR(40101, "无权限"),
+    TOO_MORE_REQUEST_ERROR(40429, "太多请求"),
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
     FORBIDDEN_ERROR(40300, "禁止访问"),
     SYSTEM_ERROR(50000, "系统内部异常"),

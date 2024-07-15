@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="重新设置AI工具类以及前端查看我的图表页面优化" />
+    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="添加生成图表时的文件校验,保证有更好的安全性">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,21 +36,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -64,6 +66,9 @@
       <workItem from="1720430244037" duration="136000" />
       <workItem from="1720440404714" duration="105000" />
       <workItem from="1720532807218" duration="128000" />
+      <workItem from="1720612076113" duration="183000" />
+      <workItem from="1720612315340" duration="15000" />
+      <workItem from="1720679302457" duration="57000" />
     </task>
     <task id="LOCAL-00001" summary="完成初始化项目(前端/后端)">
       <created>1720094746247</created>
@@ -107,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1720532922804</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="前端页面添加根据图表姓名进行搜索功能和分页">
+      <created>1720612254472</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720612254472</updated>
+    </task>
+    <task id="LOCAL-00008" summary="添加生成图表时的文件校验,保证有更好的安全性">
+      <created>1720679346146</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720679346146</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +150,8 @@
     <MESSAGE value="修改调用的大模型为星火大模型" />
     <MESSAGE value="开发基础功能-查询图表" />
     <MESSAGE value="重新设置AI工具类以及前端查看我的图表页面优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="重新设置AI工具类以及前端查看我的图表页面优化" />
+    <MESSAGE value="前端页面添加根据图表姓名进行搜索功能和分页" />
+    <MESSAGE value="添加生成图表时的文件校验,保证有更好的安全性" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加生成图表时的文件校验,保证有更好的安全性" />
   </component>
 </project>
