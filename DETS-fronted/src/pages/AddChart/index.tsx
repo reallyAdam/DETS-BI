@@ -109,9 +109,7 @@ const AddChart: React.FC = () => {
                   options={[
                     { value: '折线图', label: '折线图' },
                     { value: '柱状图', label: '柱状图' },
-                    { value: '堆叠图', label: '堆叠图' },
                     { value: '饼图', label: '饼图' },
-                    { value: '雷达图', label: '雷达图' },
                   ]}
                 />
               </Form.Item>
