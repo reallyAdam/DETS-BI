@@ -256,7 +256,7 @@ public class ChartController {
         ThrowUtils.throwIf(fileSize > ONE_MB,ErrorCode.PARAMS_ERROR,"上传文件过大,不能超过1MB");
 
         //对文件类型进行校验
-        final List<String> validFileSuffixList = Arrays.asList("xlsx");
+        final List<String> validFileSuffixList = Arrays.asList("xlsx","xls");
         ThrowUtils.throwIf(!validFileSuffixList.contains(FileUtil.getSuffix(filename)),ErrorCode.PARAMS_ERROR,"暂不支持该文件类型");
 
         //必须是登录的用户才能使用
