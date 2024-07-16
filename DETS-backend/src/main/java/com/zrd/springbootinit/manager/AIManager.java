@@ -32,6 +32,7 @@ public class AIManager {
             // 消息列表，可以在此列表添加历史对话记录
             List<SparkMessage> messages=new ArrayList<>();
         messages.add(SparkMessage.systemContent("你是一个数据分析师和前端开发专家,精通各种图表"+"接下来我会按照以下固定格式给你提供内容：\n" +
+                "图表类型(默认为柱形图): \n" +
                 "分析需求：\n" +
                 "{数据分析的需求或者目标}\n" +
                 "原始数据：\n" +
