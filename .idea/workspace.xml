@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="添加生成图表时的文件校验,保证有更好的安全性">
+    <list default="true" id="eab252ad-2a24-45f2-9c59-2bb752b394fc" name="更改" comment="修改能够生成的图表类型">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,21 +36,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "ts.external.directory.path": "D:\\javaprojects\\DETS-BI\\DETS-fronted\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -69,6 +70,8 @@
       <workItem from="1720612076113" duration="183000" />
       <workItem from="1720612315340" duration="15000" />
       <workItem from="1720679302457" duration="57000" />
+      <workItem from="1721034213583" duration="308000" />
+      <workItem from="1721127118059" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="完成初始化项目(前端/后端)">
       <created>1720094746247</created>
@@ -126,7 +129,35 @@
       <option name="project" value="LOCAL" />
       <updated>1720679346146</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="修改注释">
+      <created>1721034370021</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721034370021</updated>
+    </task>
+    <task id="LOCAL-00010" summary="修改AI的prompt">
+      <created>1721127202139</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721127202139</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修改上传限制的文件类型">
+      <created>1721127273022</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721127273022</updated>
+    </task>
+    <task id="LOCAL-00012" summary="修改能够生成的图表类型">
+      <created>1721127366009</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1721127366009</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +183,10 @@
     <MESSAGE value="重新设置AI工具类以及前端查看我的图表页面优化" />
     <MESSAGE value="前端页面添加根据图表姓名进行搜索功能和分页" />
     <MESSAGE value="添加生成图表时的文件校验,保证有更好的安全性" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加生成图表时的文件校验,保证有更好的安全性" />
+    <MESSAGE value="修改注释" />
+    <MESSAGE value="修改AI的prompt" />
+    <MESSAGE value="修改上传限制的文件类型" />
+    <MESSAGE value="修改能够生成的图表类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改能够生成的图表类型" />
   </component>
 </project>

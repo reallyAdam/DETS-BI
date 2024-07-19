@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {listMyChartVoByPageUsingPost} from "@/services/DETS/chartController";
-import {Avatar, Card, List, message} from "antd";
+import {Avatar, Card, List, message, Result} from "antd";
 import EChartsReact from "echarts-for-react";
 import {useModel} from "@@/exports";
 import Search from "antd/es/input/Search";
@@ -14,7 +14,9 @@ const MyChartPage: React.FC = () => {
 
   const initQueryParams = {
     current: 1,
-    pageSize:2,
+    pageSize:4,
+    sortField: 'createTime',
+    sortOrder: 'desc'
   };
 
   const [queryParam,setQueryParams] = useState<API.ChartQueryRequest>({...initQueryParams})
@@ -37,9 +39,12 @@ const MyChartPage: React.FC = () => {
           if(res.data.records)
           {
             res.data.records.forEach(data=>{
-              const chart = JSON.parse(data.genChart ?? '{}')
-              chart.title = undefined
-              data.genChart = JSON.stringify(chart)
+              if(data.status === 'succeed')
+              {
+                const chart = JSON.parse(data.genChart ?? '{}')
+                chart.title = undefined
+                data.genChart = JSON.stringify(chart)
+              }
             })
           }
       }
@@ -110,9 +115,7 @@ const MyChartPage: React.FC = () => {
           },
           // 显示当前页数
           current: queryParam.current,
-          // 页面参数改成自己的
           pageSize: queryParam.pageSize,
-          // 总数设置成自己的
           total: total,
         }}
         // 设置成我们的加载状态
@@ -128,12 +131,41 @@ const MyChartPage: React.FC = () => {
                 title={item.name}
                 description={item.chartType ? '图表类型：' + item.chartType : undefined}
               />
-              {/* 在元素的下方增加16像素的外边距 */}
-              <div style={{ marginBottom: 16 }} />
-              <p>{'分析目标：' + item.goal}</p>
-              {/* 在元素的下方增加16像素的外边距 */}
-              <div style={{ marginBottom: 16 }} />
-              <EChartsReact option={item.genChart && JSON.parse(item.genChart)} />
+              <>
+              {
+                item.status === 'succeed' &&
+                <>
+                  <div style={{marginBottom: 16}}/>
+                  <p>{'分析目标：' + item.goal}</p>
+                  <div style={{marginBottom: 16}}/>
+                  <EChartsReact option={item.genChart && JSON.parse(item.genChart)}/>
+                </>
+              }
+              {
+                item.status === 'failed' &&
+                <Result
+                  status='error'
+                  title={'图表生成失败'}
+                  subTitle={item.execMassage}
+                />
+              }
+              {
+                item.status === 'running' &&
+                <Result
+                  status='info'
+                  title={'图表生成中'}
+                  subTitle={item.execMassage}
+                />
+              }
+              {
+                item.status === 'wait' &&
+                <Result
+                  status='warning'
+                  title={'图表待生成'}
+                  subTitle={item.execMassage ?? '图表待生成,生成队列繁忙,请耐心等待'}
+                />
+              }
+              </>
             </Card>
           </List.Item>
         )}

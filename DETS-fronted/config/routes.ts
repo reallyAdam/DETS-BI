@@ -6,6 +6,7 @@ export default [
     ]
   },
   {name: '添加图表',path: '/add_chart', icon: 'ZoomIn', component: './AddChart'},
+  {name: '添加图表(异步)',path: '/add_chart_async', icon: 'ZoomIn', component: './AddChartAsync'},
   {name: '我的图表',path: '/my_chart', icon: 'BarChart', component: './MyChart'},
   {path: '/welcome', icon: 'smile', component: './Welcome'},
   {
