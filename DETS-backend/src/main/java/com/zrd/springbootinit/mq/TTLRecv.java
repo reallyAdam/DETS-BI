@@ -6,10 +6,12 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
-public class SingleRecv {
+public class TTLRecv {
 
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "ttl";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -19,8 +21,13 @@ public class SingleRecv {
         //创建隧道
         Channel channel = connection.createChannel();
 
+
+        Map<String, Object> args = new HashMap<String, Object>();
+        args.put("x-message-ttl", 6000);
+        channel.queueDeclare(QUEUE_NAME, false, false, false, args);
+
         //创建队列
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(QUEUE_NAME, false, false, false, args);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         //定义如何处理消息的方法

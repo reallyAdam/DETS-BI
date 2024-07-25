@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class MultiSend {
 
-    // 定义要使用的队列名称,这次的队列就改叫multi_queue
+    // 定义要使用的BiResponseVO称,这次的队列就改叫multi_queue
     private static final String TASK_QUEUE_NAME = "task_queue";
 
     public static void main(String[] argv) throws Exception {

@@ -5,7 +5,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
-public class DirectRecv {
+public class DlxDirectRecv {
 
     private static final String EXCHANGE_NAME = "direct_exchange";
 
@@ -18,7 +18,6 @@ public class DirectRecv {
         Channel channel1 = connection.createChannel();
 
         //建立交换机
-        channel1.exchangeDeclare(EXCHANGE_NAME, "direct");
         channel1.exchangeDeclare(EXCHANGE_NAME, "direct");
 
         //创建队列

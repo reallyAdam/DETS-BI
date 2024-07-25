@@ -2,7 +2,7 @@ import {Button, Card, Form, Input, message, Select, Space, Upload} from 'antd';
 import React, {useState} from 'react';
 import TextArea from "antd/es/input/TextArea";
 import {UploadOutlined} from "@ant-design/icons";
-import {genChartByAiAsyncUsingPost} from "@/services/DETS/chartController";
+import {genChartByAiAsyncMqUsingPost} from "@/services/DETS/chartController";
 import {useForm} from "antd/es/form/Form";
 
 
@@ -10,7 +10,7 @@ import {useForm} from "antd/es/form/Form";
  * AI生成图表
  * @constructor
  */
-const AddChartAsync: React.FC = () => {
+const AddChartAsyncMq: React.FC = () => {
   // 定义状态，用来接收后端的返回值，让它实时展示在页面上
   const [form] = useForm();
   // 提交中的状态，默认未提交
@@ -38,7 +38,7 @@ const AddChartAsync: React.FC = () => {
     };
     try {
       // 需要取到上传的原始数据file→file→originFileObj(原始数据)
-      const res = await genChartByAiAsyncUsingPost(params, {}, values.file.file.originFileObj);
+      const res = await genChartByAiAsyncMqUsingPost(params, {}, values.file.file.originFileObj);
       // 正常情况下，如果没有返回值就分析失败，有，就分析成功
       if (!res?.data) {
         message.error('分析失败');
@@ -129,4 +129,4 @@ const AddChartAsync: React.FC = () => {
     </div>
   );
 };
-export default AddChartAsync;
+export default AddChartAsyncMq;

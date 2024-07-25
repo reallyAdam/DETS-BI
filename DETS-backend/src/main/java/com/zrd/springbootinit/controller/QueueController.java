@@ -1,7 +1,6 @@
 package com.zrd.springbootinit.controller;
 
 import cn.hutool.json.JSONUtil;
-import com.zrd.springbootinit.config.ThreadPoolExecutorConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;

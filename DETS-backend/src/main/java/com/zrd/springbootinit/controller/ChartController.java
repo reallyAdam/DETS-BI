@@ -3,6 +3,8 @@ package com.zrd.springbootinit.controller;
 import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zrd.springbootinit.annotation.AuthCheck;
+import com.zrd.springbootinit.bizmq.BiMessageConsumer;
+import com.zrd.springbootinit.bizmq.BiMessageProducer;
 import com.zrd.springbootinit.common.BaseResponse;
 import com.zrd.springbootinit.common.DeleteRequest;
 import com.zrd.springbootinit.common.ErrorCode;
@@ -57,6 +59,12 @@ public class ChartController {
 
     @Resource
     private ThreadPoolExecutor threadPoolExecutor;
+
+    @Resource
+    private BiMessageConsumer biMessageConsumer;
+
+    @Resource
+    private BiMessageProducer biMessageProducer;
     // region 增删改查
 
     /**
@@ -407,6 +415,59 @@ public class ChartController {
 
         BiResponseVO biResponseVO = new BiResponseVO();
         biResponseVO.setChartId(chart.getId());
+        return ResultUtils.success(biResponseVO);
+    }
+
+    /**
+     * 智能图表分析消息队列MQ(异步)
+     *
+     * @param multipartFile
+     * @param genChartByAIRequest
+     * @param request
+     * @return
+     */
+    @PostMapping("/gen/asyncMq")
+    public BaseResponse<BiResponseVO> genChartByAIAsyncMQ(@RequestPart("file") MultipartFile multipartFile,
+                                                        GenChartByAIRequest genChartByAIRequest, HttpServletRequest request) {
+        String goal = genChartByAIRequest.getGoal();
+        String chartType = genChartByAIRequest.getChartType();
+        String name = genChartByAIRequest.getName();
+        //对参数进行简单的校验
+        ThrowUtils.throwIf(StringUtils.isBlank(goal),ErrorCode.PARAMS_ERROR,"分析目标不能为空");
+        ThrowUtils.throwIf(StringUtils.isNotBlank(goal) && goal.length() > 100,ErrorCode.PARAMS_ERROR,"分析目标过长");
+        ThrowUtils.throwIf(StringUtils.isNotBlank(name) && name.length() > 100,ErrorCode.PARAMS_ERROR,"图表名字过长");
+
+        //对文件进行校验
+        String filename = multipartFile.getOriginalFilename();
+        long fileSize = multipartFile.getSize();
+        final long ONE_MB = 1024 * 1024;
+        ThrowUtils.throwIf(fileSize > ONE_MB,ErrorCode.PARAMS_ERROR,"上传文件过大,不能超过1MB");
+
+        //对文件类型进行校验
+        final List<String> validFileSuffixList = Arrays.asList("xlsx","xls");
+        ThrowUtils.throwIf(!validFileSuffixList.contains(FileUtil.getSuffix(filename)),ErrorCode.PARAMS_ERROR,"暂不支持该文件类型");
+
+        //必须是登录的用户才能使用
+        User loginUser = userService.getLoginUser(request);
+
+        //限流检查
+        redisLimitManager.doLimit("genChartByAI_" + loginUser.getId());
+        //插入数据库
+        Chart chart = new Chart();
+        chart.setName(name);
+        chart.setGoal(goal);
+        chart.setChartType(chartType);
+        chart.setStatus("wait");
+        chart.setUserId(loginUser.getId());
+        boolean save = chartService.save(chart);
+        ThrowUtils.throwIf(!save,ErrorCode.SYSTEM_ERROR,"数据库插入图表失败");
+
+        //toDO 建议处理任务队列满后抛异常的情况
+        Long newChartId = chart.getId();
+        biMessageProducer.sendMessage(String.valueOf(newChartId));
+
+        BiResponseVO biResponseVO = new BiResponseVO();
+        biResponseVO.setChartId(newChartId);
         return ResultUtils.success(biResponseVO);
     }
 

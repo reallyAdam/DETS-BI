@@ -7,9 +7,9 @@ import com.rabbitmq.client.DeliverCallback;
 
 import java.nio.charset.StandardCharsets;
 
-public class SingleRecv {
+public class TTLSend {
 
-    private final static String QUEUE_NAME = "hello";
+    private final static String QUEUE_NAME = "ttl";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -20,7 +20,7 @@ public class SingleRecv {
         Channel channel = connection.createChannel();
 
         //创建队列
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        //channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         //定义如何处理消息的方法
